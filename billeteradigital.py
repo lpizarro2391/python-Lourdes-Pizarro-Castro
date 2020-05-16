@@ -16,4 +16,8 @@ def is_int(dat):
         return True
     except:
         print("Error: ingrese un numero entero")
+        return False
+
+
+
 
