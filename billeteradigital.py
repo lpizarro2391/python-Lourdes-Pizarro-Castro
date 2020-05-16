@@ -171,12 +171,19 @@ def monedasDict():
             elif cond =='5':
                 print("Mostrar historico de transacciones")
                 printMat(historial)
-
-
-
-
-
-
+                seguir = input("Desea volver al menu principal? (S/N):").upper()
+                if (seguir =="S"):
+                    print()
+                elif (seguir =="N"):
+                    exit()
+            elif cond=='6':
+                cond = '7'
+                print("hasta la próxima!")
+            else:
+                cond ='1'
+                print("Opcion inválida, por favor intente nuevamente")
+    
+    
     principal()
 
 
