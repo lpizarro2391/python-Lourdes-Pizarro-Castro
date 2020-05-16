@@ -1,15 +1,17 @@
+# se debe ingresar algun numero del 1 al 6, primero se debe ingresar el 1 para que funcione
+# al principio se van a actualizar los valores de las monedas
 import random
 from requests import Request, Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 from datetime import datetime
-
+# para imprimir los valores de las monedas
 def resMoned(nombremone,CantMone,preciomon):
     print(nombremone.upper())
     print("En este momento usted possee: ",CantMone[nombremone],nombremone.upper())
     print("Equivalente a: ,",str(CantMone[nombremone]*preciomon[nombremone]),"USD")
 
-
+# esta fincion es para validar si el dato ingresado es un # 
 def is_int(dat):
     try: 
         int(dat)
@@ -23,7 +25,7 @@ def printMat(lis):
         for j in i:
             print(j,end='\t\t')
             print('')
-
+#para actualizar los valores de las monedas de coinmarket
 def monedasDict():
     opcionMonedas = ["BTC","ETH","XRP","BCH","LTC","EOS","BNB","XTZ"]
     url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
@@ -45,7 +47,7 @@ def monedasDict():
         moneda_dict[criptomoneda] = precio
     print("precio:",moneda_dict)
     return moneda_dict
-
+# menu de opciones del 1 al 6
 def principal():
     cond = "1"
     micode = random.randint(100,400)
