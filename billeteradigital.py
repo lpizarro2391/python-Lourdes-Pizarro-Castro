@@ -101,46 +101,78 @@ def monedasDict():
                         print()
                     elif (seguir =="N"):
                         exit()
-        elif cond =='2':
-            print("Transferir Monto")
-            validadestinat = False
-            while not validadestinat:
-                codigodestinatario = input("Ingrese el codigo del destinatario: ")
-                validadestinat = is_int(codigodestinatario)
-                if (validadestinat and not(300 <= int(codigodestinatario) <= 400))
-                    validadestinat = False
-                    print("Error: el codigo debe estar entre 300 y 400")
-                if (validadestinat and (int(codigodestinatario) ==micode)):
-                    validadestinat = False
-                    print("Error: El codigo del remitente y del destinatario no puede ser el mismo")
-            cripto = input ("Qué Criptomoneda va a enviar? (BTC, ETH, XRP, BCH, LTC, EOS, BNB, XTZ) ").upper().strip()
-            if cripto in defmoneda:
-                cant = int(input("Que cantidad va a enviar?"))
-                if defmoneda(cripto) >= cant:
-                    defmoneda[cripto] -= cant:
-                    h = [fecha, cripto.upper(), 'Enviar', str(micode, str(codigodestinatario,)
-                         str(cant*precio[cripto])]
-                    historial.append()
-                    print("Transferencia exitosa de ", cant,cripto)
+            elif cond =='2':
+                print("Transferir Monto")
+                validadestinat = False
+                while not validadestinat:
+                    codigodestinatario = input("Ingrese el codigo del destinatario: ")
+                    validadestinat = is_int(codigodestinatario)
+                    if (validadestinat and not(300 <= int(codigodestinatario) <= 400)):
+                        validadestinat = False
+                        print("Error: el codigo debe estar entre 300 y 400")
+                    if (validadestinat and (int(codigodestinatario) ==micode)):
+                        validadestinat = False
+                        print("Error: El codigo del remitente y del destinatario no puede ser el mismo")
+                cripto = input ("Qué Criptomoneda va a enviar? (BTC, ETH, XRP, BCH, LTC, EOS, BNB, XTZ) ").upper().strip()
+                if cripto in defmoneda:
+                    cant = int(input("Que cantidad va a enviar?"))
+                    if defmoneda(cripto) >= cant:
+                        defmoneda[cripto] -= cant
+                        h = [fecha, cripto.upper(), 'Enviar', str(
+                            micode), str(codigodestinatario), str(cant*precio[cripto])]
+                        historial.append()
+                        print("Transferencia exitosa de ", cant,cripto)
+                        seguir = input("Desea volver al menu principal? (S/N):").upper()
+                        if (seguir =="S"):
+                            print()
+                        elif (seguir =="N"):
+                            exit()
+                    else:
+                        print("Error: usted no posee suficientes",cripto,"para realizar la transaccion.")
+                        seguir = input("Desea volver al menu principal? (S/N):").upper()
+                        if ( seguir == "S"):
+                            print()
+                        elif (seguir =="N"):
+                            exit()
+                else:
+                    print("Error: usted no posee", cripto, "suficientes.")
+                    seguir = input("Desea volver al menu principal? (S/N)").upper()
+                    if (seguir =="S"):
+                        print()
+                    elif ( seguir =="N"):
+                        exit()
+            elif cond == '3':
+                print("Mostrar balance de una moneda")
+                mon = input("Indique qué moneda va a consultar? (BTC, ETH, XRP, BCH, LTC, EOS, BNB, XTZ) ").upper().strip()
+                if mon in defmoneda:
+                    resMoned(mon,defmoneda,precio)
                     seguir = input("Desea volver al menu principal? (S/N):").upper()
                     if (seguir =="S"):
                         print()
-                    elif (seguir =="N"):
+                    elif(seguir =="N"):
                         exit()
-                else:
-                    print("Error: usted no posee suficientes",cripto,"para realizar la transaccion.")
-                    seguir = input("Desea volver al menu principal? (S/N):").upper()
-                    if ( seguir == "S"):
+                else: 
+                    print("Error: Usted no posee" ,mon,"Suficientes.")
+                    seguir = input("Volver al menú principal? (S/N):").upper()
+                    if(seguir =="S"):
                         print()
                     elif (seguir =="N"):
                         exit()
-            else:
-                print("Error: usted no posee", cripto, "suficientes.")
-                seguir = input("Desea volver al menu principal? (S/N)").upper()
+            elif cond =='4':
+                print("Mostrar balance general")
+                lisC = list(defmoneda.keys())
+                for i in lisC:
+                    resMoned(i,defmoneda,precio)
+                seguir = input("Desea Volver al menu principal? (S/N):").upper()
                 if (seguir =="S"):
                     print()
-                elif ( seguir =="N"):
+                elif(seguir =="N"):
                     exit()
+            elif cond =='5':
+                print("Mostrar historico de transacciones")
+                printMat(historial)
+
+
 
 
 
