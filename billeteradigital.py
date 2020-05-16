@@ -75,6 +75,23 @@ def monedasDict():
             h = [0, 0, 0, 0, 0, 0,]
             if cond =='1':
                 print("Recibir Cantidad")
+                codeusertransfiere = random.randint(300,400)
+                cripto = input("Indique la moneda que va a recibir (BTC,ETH,XRP,BCH,LTC,EOS,BNB,XTZ)").upper().strip()
+                if cripto in precio:
+                    if codeusertransfiere != micode:
+                        cant = int(input("Que cantidad va a recibir?"))
+                        if cripto in defmoneda:
+                            defmoneda[cripto] += cant
+                        else:
+                            defmoneda[cripto] = cant
+                        h = [fecha, cripto.upper(),'Recibir',str(codeusertransfiere),str(micode),str(cant*precio[cripto])]
+                        historial.append(h)
+                        print("Transferencia exitosa de", cant, cripto)
+                        seguir = input("Desea volver al menú principal?(S/N):").upper()
+                        if (seguir =="S"):
+                            print()
+                        elif (seguir =="N"):
+                            exit()
 
 
     principal()
