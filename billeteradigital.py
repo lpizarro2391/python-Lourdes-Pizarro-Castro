@@ -92,7 +92,15 @@ def monedasDict():
                             print()
                         elif (seguir =="N"):
                             exit()
-
+                    else: 
+                        print("ERROR: El codigo de Origen y Destino no puede ser el mismo.")
+                else:
+                    print("Error: La criptomoneda ", cripto, "no está dentro de las opciones")
+                    seguir = input("Desea volver al menú principal?(S/N):").upper()
+                    if (seguir == "S"):
+                        print()
+                    elif (seguir =="N"):
+                        exit()
 
     principal()
 
