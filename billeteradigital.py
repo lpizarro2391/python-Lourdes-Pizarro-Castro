@@ -18,6 +18,12 @@ def is_int(dat):
         print("Error: ingrese un numero entero")
         return False
 
+def printMat(lis):
+    for i in lis:
+        for j in i:
+            print(j,end='\t\t')
+            print('')
+
 
 
 
