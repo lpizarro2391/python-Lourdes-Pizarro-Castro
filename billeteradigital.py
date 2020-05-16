@@ -24,6 +24,20 @@ def printMat(lis):
             print(j,end='\t\t')
             print('')
 
+def monedasDict():
+    opcionMonedas = ["BTC","ETH","XRP","BCH","LTC","EOS","BNB","XTZ"]
+    url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
+    headers = {
+        'Accepts': 'application/json',
+        'X-CMC_PRO_API_KEY': '7dc3eb05-b9ca-401e-835e-1eaceaef62cf',
+    }
+
+    session = Session()
+    session.headers.update(headers)
+    moneda_dict = {}
+
+    
+
 
 
 
