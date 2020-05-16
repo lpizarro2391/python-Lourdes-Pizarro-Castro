@@ -50,9 +50,24 @@ def monedasDict():
         cond = "1"
         micode = random.randint(100,200)
         historial = [['Fecha(D/M/A)', 'Moneda','Tipo Op','Origen','Destino','Monto(USD)']]
-               
+        precio = monedasDict()
+        defmoneda = {}
 
-        
+        while cond in ['1','2','3','4','5','6']:
+            print("*********************  MENÚ PRINCIPAL  *************************")
+            print("     #     Bienvenido a coinmarketcap. Digite una opción       #")
+            print("     #     1: Recibir cantidad.                                #")
+            print("     #     2: Transaferir monto.                               #")
+            print("     #     3: Mostrar balance de una moneda.                   #")
+            print("     #     4: Mostrar balance general.                         #")
+            print("     #     5: Mostrar histórico de transacciones.              #")
+            print("     #     6: Salir del programa.                              #")
+            print("     ***********************************************************")
+            print("Notas:")
+            print("- Las transferencias se realizan en USD")
+            print("- Escriba la abreviatura de la moneda")
+            print("------------------------------------------------------------------------------------")
+         cond = input("").strip()   
 
 
     principal()
