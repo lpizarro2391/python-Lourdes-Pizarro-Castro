@@ -73,6 +73,8 @@ def monedasDict():
             fecha = str(datetime.now().day)+' / '+ \
                 str(datetime.now().month)+' / '+str(datetime.now().year)
             h = [0, 0, 0, 0, 0, 0,]
+            if cond =='1':
+                print("Recibir Cantidad")
 
 
     principal()
