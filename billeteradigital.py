@@ -49,9 +49,10 @@ def monedasDict():
     def principal():
         cond = "1"
         micode = random.randint(100,200)
+        historial = [['Fecha(D/M/A)', 'Moneda','Tipo Op','Origen','Destino','Monto(USD)']]
+               
+
         
-
-
 
 
     principal()
