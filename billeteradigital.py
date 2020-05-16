@@ -48,7 +48,7 @@ def monedasDict():
 
 def principal():
     cond = "1"
-    micode = random.randint(100,200)
+    micode = random.randint(100,400)
     historial = [['Fecha(D/M/A)', 'Moneda','Tipo Op','Origen','Destino','Monto(USD)']]
     precio = monedasDict()
     defmoneda = {}
@@ -75,7 +75,7 @@ def principal():
         h = [0, 0, 0, 0, 0, 0,]
         if cond =='1':
             print("Recibir Cantidad")
-            codeusertransfiere = random.randint(300,400)
+            codeusertransfiere = random.randint(100,400)
             cripto = input("Indique la moneda que va a recibir (BTC,ETH,XRP,BCH,LTC,EOS,BNB,XTZ)").upper().strip()
             if cripto in precio:
                 if codeusertransfiere != micode:
@@ -107,20 +107,20 @@ def principal():
             while not validadestinat:
                 codigodestinatario = input("Ingrese el codigo del destinatario: ")
                 validadestinat = is_int(codigodestinatario)
-                if (validadestinat and not(300 <= int(codigodestinatario) <= 400)):
+                if (validadestinat and not(100 <= int(codigodestinatario) <= 400)):
                     validadestinat = False
-                    print("Error: el codigo debe estar entre 300 y 400")
+                    print("Error: el codigo debe estar entre 100 y 400")
                 if (validadestinat and (int(codigodestinatario) ==micode)):
                     validadestinat = False
                     print("Error: El codigo del remitente y del destinatario no puede ser el mismo")
                 cripto = input ("Qué Criptomoneda va a enviar? (BTC, ETH, XRP, BCH, LTC, EOS, BNB, XTZ) ").upper().strip()
                 if cripto in defmoneda:
                     cant = int(input("Que cantidad va a enviar?"))
-                    if defmoneda(cripto) >= cant:
+                    if defmoneda[cripto] >= cant:
                         defmoneda[cripto] -= cant
                         h = [fecha, cripto.upper(), 'Enviar', str(
                             micode), str(codigodestinatario), str(cant*precio[cripto])]
-                        historial.append()
+                        historial.append(h)
                         print("Transferencia exitosa de ", cant,cripto)
                         seguir = input("Desea volver al menu principal? (S/N):").upper()
                         if (seguir =="S"):
