@@ -36,8 +36,15 @@ def monedasDict():
     session.headers.update(headers)
     moneda_dict = {}
 
-    
-
+    for criptomoneda in opcionMonedas:
+        print("Actualizando cotizaciones",criptomoneda)
+        parametros = {'symbol': criptomoneda}
+        response = session.get(url,params=parametros)
+        data = json.loads(response.text)
+        precio = (data["data"][criptomoneda]["quote"]["USD"]["price"])
+        moneda_dict[criptomoneda] = precio
+    print("precio:",moneda_dict)
+    return moneda_dict
 
 
 
