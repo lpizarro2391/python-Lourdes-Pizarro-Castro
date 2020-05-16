@@ -46,5 +46,13 @@ def monedasDict():
     print("precio:",moneda_dict)
     return moneda_dict
 
+    def principal():
+        cond = "1"
+        
+
+
+
+    principal()
+
 
 
