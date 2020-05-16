@@ -48,7 +48,9 @@ def monedasDict():
 
     def principal():
         cond = "1"
+        micode = random.randint(100,200)
         
+
 
 
 
