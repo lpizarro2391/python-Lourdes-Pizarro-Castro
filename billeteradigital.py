@@ -101,6 +101,14 @@ def monedasDict():
                         print()
                     elif (seguir =="N"):
                         exit()
+        elif cond =='2':
+            print("Transferir Monto")
+            validadestinat = False
+            while not validadestinat:
+                codigodestinatario = input("Ingrese el codigo del destinatario: ")
+                validadestinat = is_int(codigodestinatario)
+
+
 
     principal()
 
