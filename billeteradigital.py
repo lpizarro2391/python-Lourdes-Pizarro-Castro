@@ -55,6 +55,8 @@ def monedasDict():
 
         while cond in ['1','2','3','4','5','6']:
             print("*********************  MENÚ PRINCIPAL  *************************")
+            print("     #     Ha ingresado con el código: ",
+                  micode, "                  #")
             print("     #     Bienvenido a coinmarketcap. Digite una opción       #")
             print("     #     1: Recibir cantidad.                                #")
             print("     #     2: Transaferir monto.                               #")
@@ -67,7 +69,10 @@ def monedasDict():
             print("- Las transferencias se realizan en USD")
             print("- Escriba la abreviatura de la moneda")
             print("------------------------------------------------------------------------------------")
-         cond = input("").strip()   
+            cond = input("").strip() 
+            fecha = str(datetime.now().day)+' / '+ \
+                str(datetime.now().month)+' / '+str(datetime.now().year)
+            h = [0, 0, 0, 0, 0, 0,]
 
 
     principal()
